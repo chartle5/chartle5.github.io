@@ -194,4 +194,77 @@
         <div class="actions">
           <a class="btn" href="https://drive.google.com/file/d/1hHfUsQcb2lQqPkyDgd4FMncWlmNTMXQY/preview" target="_blank" rel="noopener">View Demo</a>
         </div>
-      </
+      </article>
+
+      <article class="card">
+        <h3>Pocket Quest</h3>
+        <div class="about-toggle">About the app ▼</div>
+        <p class="desc">Pocket Quest is a 3D adventure game developed collaboratively for a game design course using C# and Unity. Players embark on a mission, completing quests and progressing through multiple stages to reach the final boss and engage in a Pokemon-style battle. </p>
+        <div class="meta">
+          <span class="tag">Game Design</span><span class="tag">3D</span><span class="tag">C# + Unity</span>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://drive.google.com/file/d/1mP8WyDGadrLNo6ZG3byeT_Ia-0JpjNe8/preview" target="_blank" rel="noopener">View Demo</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Medlife</h3>
+        <div class="about-toggle">About the app ▼</div>
+        <p class="desc">Medlife is a mobile healthcare management application developed collaboratively for a university client project in partnership with a healthcare provider from India. The goal was to improve the efficiency of small-scale eye care clinics by transitioning from manual record-keeping to a digital patient management system. Built with React-Native for cross-platform compatibility, Medlife enables clinics to manage patient records, collect preliminary health information, and visualize patient data through an intuitive UI and dashboard.</p>
+        <div class="meta">
+          <span class="tag">Healthcare</span><span class="tag">Mobile</span><span class="tag">React-Native</span>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://drive.google.com/file/d/13WPxy-bGoHjJz12B0cUIkhihgvCLqNl3/preview" target="_blank" rel="noopener">View Demo</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Image Analyzer App</h3>
+        <div class="about-toggle">About the app ▼</div>
+        <p class="desc">This very basic application was an introductory machine learning project that allows users to upload an image and receive the predicted object name detected within it. The project features a Flask-based Python backend that leverages PyTorch and Torchvision for image classification inference.</p>
+        <div class="meta">
+          <span class="tag">PyTorch</span><span class="tag">Machine Learning</span><span class="tag">Python</span>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://drive.google.com/file/d/10zpxmVIGJigO-3YsHhKCuFwBLPA7-Mfa/preview" target="_blank" rel="noopener">View Demo</a>
+        </div>
+      </article>
+
+    </section>
+
+    <footer>
+      © <span id="year"></span> • Caelan Hartley • <a href="https://github.com/chartle5/PersonalProjects/" target="_blank" rel="noopener">GitHub</a>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('.about-toggle').forEach(toggle => {
+      toggle.addEventListener('click', () => {
+        const desc = toggle.nextElementSibling;
+        desc.classList.toggle('open');
+        toggle.textContent = desc.classList.contains('open') ? 'About the app ▲' : 'About the app ▼';
+      });
+    });
+
+    const contactToggle = document.getElementById('contact-toggle');
+    const contactPanel = document.getElementById('contact-panel');
+
+    contactToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = contactPanel.classList.toggle('open');
+      contactToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    document.querySelectorAll('.btn').forEach(btn => {
+      const url = btn.getAttribute('href');
+      if (url.includes('drive.google.com/file/') && !url.includes('&mute=1')) {
+        btn.setAttribute('href', url + (url.includes('?') ? '&mute=1' : '?mute=1'));
+      }
+    });
+  </script>
+</body>
+</html>
